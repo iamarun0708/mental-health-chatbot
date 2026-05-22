@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calm Corporation | Discover Your Inner Peace</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --primary-dark: #3a7bc8;
+            --secondary: #5cdb95;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-login {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-right: 10px;
+        }
+        
+        .btn-login:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 18px;
+        }
+        
+        /* Features Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        /* Why Choose Us Section */
+        .why-us {
+            background-color: var(--light-gray);
+        }
+        
+        .why-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        
+        .why-text {
+            flex: 1;
+        }
+        
+        .why-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .why-text p {
+            margin-bottom: 30px;
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        .why-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .why-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+            font-size: 14px;
+        }
+        
+        /* Login Form */
+        .login-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .btn-login-form {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .btn-login-form:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        /* Chat Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s;
+        }
+        
+        .chat-btn:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+        
+        .chat-btn i {
+            font-size: 24px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .why-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                Calm Corporation
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-login" id="loginBtn">Login</button>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Discover Your Inner Peace</h1>
+            <p>Introducing an AI-powered mental health partner that guides you towards a calmer, more balanced life.</p>
+            <a href="#" class="btn btn-primary btn-large">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Features</h2>
+                <p>Comprehensive tools to support your mental wellness journey</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>AI Chat Support</h3>
+                    <p>Engage in meaningful conversations with your AI companion anytime, anywhere.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Personalized Insights</h3>
+                    <p>Receive thoughtful suggestions and insights based on your mood and activities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Mood Tracking</h3>
+                    <p>Monitor your emotional states and stress levels with ease.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Wellness Resources</h3>
+                    <p>Access to a variety of resources designed to improve mental health and wellbeing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section why-us">
+        <div class="container">
+            <div class="why-content">
+                <div class="why-text">
+                    <h2>Why Choose Us?</h2>
+                    <p>Calm Corporation is more than just an app. It's a supportive friend that understands your journey and helps you navigate life's challenges with ease. Join thousands of users who have found advice and strength through our innovative platform.</p>
+                    <a href="#" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="why-image">
+                    <!-- Placeholder for image -->
+                    <div style="width: 100%; height: 300px; background-color: #e0e0e0; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-users" style="font-size: 60px; color: #aaa;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Community Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Calm Corporation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Form -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-form">
+            <button class="close-btn" id="closeLogin">&times;</button>
+            <h2>Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-login-form">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Chat Button -->
+    <div class="chat-btn" id="chatBtn">
+        <i class="fas fa-comment"></i>
+    </div>
+
+    <script>
+        // Login functionality
+        const loginBtn = document.getElementById('loginBtn');
+        const loginContainer = document.getElementById('loginContainer');
+        const closeLogin = document.getElementById('closeLogin');
+        const loginForm = document.getElementById('loginForm');
+        const chatBtn = document.getElementById('chatBtn');
+
+        // Show login form
+        loginBtn.addEventListener('click', () => {
+            loginContainer.style.display = 'flex';
+        });
+
+        // Close login form
+        closeLogin.addEventListener('click', () => {
+            loginContainer.style.display = 'none';
+        });
+
+        // Handle login form submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real app, you would validate credentials here
+            // For this demo, we'll just simulate a successful login
+            alert('Login successful! You can now access the chat feature.');
+            loginContainer.style.display = 'none';
+            // Enable chat button after login
+            chatBtn.style.display = 'flex';
+        });
+
+        // Navigate to chat (simulated)
+        chatBtn.addEventListener('click', () => {
+            alert('Navigating to chat interface...');
+            // In a real application, this would redirect to the chat page
+            // window.location.href = '/chat';
+        });
+
+        // Initially hide chat button until login
+        chatBtn.style.display = 'none';
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "entries": [
+    {
+      "id": "support_low_1",
+      "keywords": ["happy", "good", "great", "better"],
+      "response": "I'm glad to hear you're doing well! What's been making your day better?",
+      "risk_level": "low"
+    },
+    {
+      "id": "support_greeting",
+      "keywords": ["hello", "hi", "hey"],
+      "response": "Hello! I'm here to listen and support you. How has your day been going?",
+      "risk_level": "low"
+    },
+    {
+      "id": "support_thanks",
+      "keywords": ["thank", "thanks"],
+      "response": "You're very welcome! I'm glad I could be here for you. Is there anything else you'd like to talk about?",
+      "risk_level": "low"
+    },
+    {
+      "id": "empathy_sad",
+      "keywords": ["sad", "depressed", "down"],
+      "response": "I'm really sorry you're feeling this way. It's brave of you to share. Would you like to tell me more about what's been on your mind?",
+      "risk_level": "medium"
+    },
+    {
+      "id": "empathy_anxious",
+      "keywords": ["anxious", "worried", "panic", "scared", "nervous"],
+      "response": "Anxiety can feel overwhelming. Take a deep breath — would you like some grounding techniques or to talk about what's causing this?",
+      "risk_level": "medium"
+    },
+    {
+      "id": "stress_help",
+      "keywords": ["stressed", "overwhelmed", "pressure"],
+      "response": "It sounds like you have a lot on your plate. Sometimes breaking things into smaller steps helps. What's the most challenging part right now?",
+      "risk_level": "medium"
+    },
+    {
+      "id": "default_support",
+      "keywords": [],
+      "response": "Thank you for sharing. I'm listening — could you tell me more about how that makes you feel?",
+      "risk_level": "low"
+    }
+  ]
+}
